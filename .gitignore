@@ -1,0 +1,16 @@
+# Virtual environment
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Audio datasets
+data/raw/
+data/processed/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# System files
+.DS_Store
