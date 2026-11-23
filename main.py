@@ -14,7 +14,6 @@ This script:
 from pathlib import Path
 
 import numpy as np
-import sounddevice as sd
 import soundfile as sf
 from scipy import signal
 from scipy.fftpack import fft
@@ -44,7 +43,7 @@ def main():
 
     # Temporary test data. Replace with features.csv
     # when the real extracted features are available.
-    csv_path = Path("data/processed/test_features.csv")
+    csv_path = Path("data/processed/features.csv")
 
     print("\n1. Loading audio features...")
 
