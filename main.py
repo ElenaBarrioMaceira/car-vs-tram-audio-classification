@@ -1,9 +1,10 @@
+
 """
 Main script for car vs. tram audio classification.
 
 This script:
 1. Loads the extracted audio features.
-2. Splits the dataset by recording user.
+2. Splits the dataset using stratification.
 3. Compares different SVM configurations.
 4. Trains the final SVM model.
 5. Evaluates the model on the test dataset.
@@ -11,6 +12,12 @@ This script:
 """
 
 from pathlib import Path
+
+import numpy as np
+import sounddevice as sd
+import soundfile as sf
+from scipy import signal
+from scipy.fftpack import fft
 
 from src.train import (
     load_features,
@@ -35,7 +42,8 @@ def main():
     # 1. LOAD FEATURES
     # --------------------------------------------------
 
-    # Use test data until real features are available
+    # Temporary test data. Replace with features.csv
+    # when the real extracted features are available.
     csv_path = Path("data/processed/test_features.csv")
 
     print("\n1. Loading audio features...")
@@ -45,6 +53,7 @@ def main():
     # --------------------------------------------------
     # 2. SPLIT DATASET
     # --------------------------------------------------
+
     print("\n2. Splitting dataset with stratification...")
 
     X_train, X_val, X_test, y_train, y_val, y_test = split_data(
